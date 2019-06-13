@@ -1,0 +1,10 @@
+T:\Documentos\GitHub\exercicio-de-banco-de-dads\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.exe.config
+T:\Documentos\GitHub\exercicio-de-banco-de-dads\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.exe
+T:\Documentos\GitHub\exercicio-de-banco-de-dads\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.pdb
+T:\Documentos\GitHub\exercicio-de-banco-de-dads\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.csprojAssemblyReference.cache
+T:\Documentos\GitHub\exercicio-de-banco-de-dads\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.Form1.resources
+T:\Documentos\GitHub\exercicio-de-banco-de-dads\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.Properties.Resources.resources
+T:\Documentos\GitHub\exercicio-de-banco-de-dads\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.csproj.GenerateResource.cache
+T:\Documentos\GitHub\exercicio-de-banco-de-dads\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.csproj.CoreCompileInputs.cache
+T:\Documentos\GitHub\exercicio-de-banco-de-dads\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.exe
+T:\Documentos\GitHub\exercicio-de-banco-de-dads\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.pdb
