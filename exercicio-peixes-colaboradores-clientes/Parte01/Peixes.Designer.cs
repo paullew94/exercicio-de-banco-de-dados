@@ -37,10 +37,17 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.cbRaca = new System.Windows.Forms.ComboBox();
             this.mtbPreco = new System.Windows.Forms.MaskedTextBox();
-            this.nud = new System.Windows.Forms.NumericUpDown();
+            this.nudQuantidade = new System.Windows.Forms.NumericUpDown();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.btnApagar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.nud)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRaca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPreco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnQuantidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblNome
@@ -107,6 +114,11 @@
             // cbRaca
             // 
             this.cbRaca.FormattingEnabled = true;
+            this.cbRaca.Items.AddRange(new object[] {
+            "Carpa",
+            "Dourada",
+            "Tilapia",
+            "Panga"});
             this.cbRaca.Location = new System.Drawing.Point(3, 94);
             this.cbRaca.Name = "cbRaca";
             this.cbRaca.Size = new System.Drawing.Size(121, 21);
@@ -115,16 +127,17 @@
             // mtbPreco
             // 
             this.mtbPreco.Location = new System.Drawing.Point(1, 140);
+            this.mtbPreco.Mask = "999,99";
             this.mtbPreco.Name = "mtbPreco";
             this.mtbPreco.Size = new System.Drawing.Size(100, 20);
             this.mtbPreco.TabIndex = 8;
             // 
-            // nud
+            // nudQuantidade
             // 
-            this.nud.Location = new System.Drawing.Point(3, 179);
-            this.nud.Name = "nud";
-            this.nud.Size = new System.Drawing.Size(120, 20);
-            this.nud.TabIndex = 9;
+            this.nudQuantidade.Location = new System.Drawing.Point(3, 179);
+            this.nudQuantidade.Name = "nudQuantidade";
+            this.nudQuantidade.Size = new System.Drawing.Size(120, 20);
+            this.nudQuantidade.TabIndex = 9;
             // 
             // btnSalvar
             // 
@@ -143,15 +156,64 @@
             this.btnApagar.TabIndex = 11;
             this.btnApagar.Text = "Apagar";
             this.btnApagar.UseVisualStyleBackColor = true;
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnID,
+            this.ColumnNome,
+            this.ColumnRaca,
+            this.ColumnPreco,
+            this.ColumnQuantidade});
+            this.dataGridView1.Location = new System.Drawing.Point(191, 66);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(256, 150);
+            this.dataGridView1.TabIndex = 12;
+            // 
+            // ColumnID
+            // 
+            this.ColumnID.HeaderText = "ID";
+            this.ColumnID.Name = "ColumnID";
+            this.ColumnID.ReadOnly = true;
+            // 
+            // ColumnNome
+            // 
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            // 
+            // ColumnRaca
+            // 
+            this.ColumnRaca.HeaderText = "Raça";
+            this.ColumnRaca.Name = "ColumnRaca";
+            this.ColumnRaca.ReadOnly = true;
+            // 
+            // ColumnPreco
+            // 
+            this.ColumnPreco.HeaderText = "Preço";
+            this.ColumnPreco.Name = "ColumnPreco";
+            this.ColumnPreco.ReadOnly = true;
+            // 
+            // ColumnQuantidade
+            // 
+            this.ColumnQuantidade.HeaderText = "Quantidade";
+            this.ColumnQuantidade.Name = "ColumnQuantidade";
+            this.ColumnQuantidade.ReadOnly = true;
             // 
             // Peixes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(237, 268);
+            this.ClientSize = new System.Drawing.Size(451, 268);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnApagar);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.nud);
+            this.Controls.Add(this.nudQuantidade);
             this.Controls.Add(this.mtbPreco);
             this.Controls.Add(this.cbRaca);
             this.Controls.Add(this.txtNome);
@@ -163,7 +225,8 @@
             this.Controls.Add(this.lblNome);
             this.Name = "Peixes";
             this.Text = "Peixes";
-            ((System.ComponentModel.ISupportInitialize)(this.nud)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -180,8 +243,14 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.ComboBox cbRaca;
         private System.Windows.Forms.MaskedTextBox mtbPreco;
-        private System.Windows.Forms.NumericUpDown nud;
+        private System.Windows.Forms.NumericUpDown nudQuantidade;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.Button btnApagar;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNome;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRaca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPreco;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnQuantidade;
     }
 }
