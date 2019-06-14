@@ -170,11 +170,12 @@
             this.ColumnRaca,
             this.ColumnPreco,
             this.ColumnQuantidade});
-            this.dataGridView1.Location = new System.Drawing.Point(191, 66);
+            this.dataGridView1.Location = new System.Drawing.Point(129, 58);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(256, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(454, 150);
             this.dataGridView1.TabIndex = 12;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // ColumnID
             // 
@@ -210,7 +211,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(451, 268);
+            this.ClientSize = new System.Drawing.Size(584, 268);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btnApagar);
             this.Controls.Add(this.btnSalvar);
@@ -226,6 +227,7 @@
             this.Controls.Add(this.lblNome);
             this.Name = "Peixes";
             this.Text = "Peixes";
+            this.Activated += new System.EventHandler(this.Peixes_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantidade)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

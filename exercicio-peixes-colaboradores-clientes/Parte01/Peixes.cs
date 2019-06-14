@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Parte01
@@ -31,7 +25,7 @@ namespace Parte01
             {
 
                 SqlConnection conexao = new SqlConnection();
-                conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\Peixes.mdf;Integrated Security=True;Connect Timeout=30";
+                conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\peixes.mdf;Integrated Security=True;Connect Timeout=30";
                 conexao.Open();
 
                 SqlCommand comando = new SqlCommand();
@@ -50,18 +44,19 @@ namespace Parte01
         private void Inserir()
         {
             Peixe peixe = new Peixe();
+            peixe.Id = Convert.ToInt32(lblID.Text);
             peixe.Nome = txtNome.Text;
             peixe.Raca = cbRaca.SelectedItem.ToString();
             peixe.Preco = Convert.ToDecimal(mtbPreco.Text);
             peixe.Quantidade = Convert.ToInt32(nudQuantidade.Value);
 
             SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\Peixes.mdf;Integrated Security=True;Connect Timeout=30";
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\peixes.mdf;Integrated Security=True;Connect Timeout=30";
             conexao.Open();
 
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
-            comando.CommandText = @"INSERT INTO peixes(nome,raca,preco,quantidade) VALUES (@NOME,@RACA,@QUANTIDADE,@PRECO)";
+            comando.CommandText = @"INSERT INTO peixes(nome,raca,preco,quantidade) VALUES (@NOME,@RACA,@PRECO,@QUANTIDADE)";
            
             comando.Parameters.AddWithValue(@"NOME", peixe.Nome);
             comando.Parameters.AddWithValue(@"RACA", peixe.Raca);
@@ -69,9 +64,9 @@ namespace Parte01
             comando.Parameters.AddWithValue(@"QUANTIDADE", peixe.Quantidade);
             comando.ExecuteNonQuery();
             MessageBox.Show("Registro criado com sucesso");
-            LimparCampos();
             conexao.Close();
             AtualizarTabela();
+            LimparCampos();
 
         }
 
@@ -84,13 +79,13 @@ namespace Parte01
             peixe.Quantidade = Convert.ToInt32(nudQuantidade.Value);
 
             SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\Peixes.mdf;Integrated Security=True;Connect Timeout=30";
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\peixes.mdf;Integrated Security=True;Connect Timeout=30";
             conexao.Open();
 
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
-            comando.CommandText=@"UPADTE peixes(nome,raca,preco,quantidade) SET nome=@NOME,raca=@RACA,preco=@PRECO,quantidade=@QUANTIDADE WHERE id=@ID";
-
+            comando.CommandText=@"UPADTE peixes SET nome=@NOME,raca=@RACA,preco=@PRECO,quantidade=@QUANTIDADE WHERE id=@ID";
+            comando.Parameters.AddWithValue("@ID", peixe.Id);
             comando.Parameters.AddWithValue(@"NOME", peixe.Nome);
             comando.Parameters.AddWithValue(@"RACA", peixe.Raca);
             comando.Parameters.AddWithValue(@"PRECO", peixe.Preco);
@@ -108,6 +103,7 @@ namespace Parte01
             if (lblID.Text=="0")
             {
                 Inserir();
+                AtualizarTabela();
             }
             else
             {
@@ -128,11 +124,11 @@ namespace Parte01
         private void AtualizarTabela()
         {
             SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\Peixes.mdf;Integrated Security=True;Connect Timeout=30";
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\peixes.mdf;Integrated Security=True;Connect Timeout=30";
             conexao.Open();
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
-            comando.CommandText = "SELECT nome,raca,preco,quantidade FROM peixes";
+            comando.CommandText = "SELECT id,nome,raca,preco,quantidade FROM peixes";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
@@ -142,13 +138,52 @@ namespace Parte01
             {
                 DataRow linha = tabela.Rows[i];
                 Peixe peixe = new Peixe();
-                peixe.Id = Convert.ToInt32(linha["id"]);
+                peixe.Id= Convert.ToInt32(linha["id"]);
                 peixe.Nome = linha["nome"].ToString();
+                peixe.Raca = linha["raca"].ToString();
                 peixe.Preco =Convert.ToDecimal( linha["preco"]);
                 peixe.Quantidade = Convert.ToInt32(linha["quantidade"]);
+                dataGridView1.Rows.Add(new string[] { peixe.Id.ToString(), peixe.Nome, peixe.Raca, peixe.Preco.ToString(), peixe.Quantidade.ToString() });
 
             }
 
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\peixes.mdf;Integrated Security=True;Connect Timeout=30";
+            conexao.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.CommandText = @" SELECT id,nome,raca,preco,quantidade FROM peixes WHERE id= @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            comando.Connection = conexao;
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            DataRow linha = tabela.Rows[0];
+            Peixe peixe = new Peixe();
+            peixe.Id = Convert.ToInt32(linha["id"]);
+            peixe.Nome = linha["nome"].ToString();
+            peixe.Raca = linha["raca"].ToString();
+            peixe.Preco = Convert.ToDecimal(linha["preco"]);
+            peixe.Quantidade = Convert.ToInt32(linha["quantidade"]);
+
+            lblID.Text = peixe.Id.ToString();
+            txtNome.Text = peixe.Nome;
+            cbRaca.SelectedItem = peixe.Raca;
+            mtbPreco.Text = peixe.Preco.ToString();
+            nudQuantidade.Value = peixe.Quantidade;
+
+            conexao.Close();
+
+        }
+
+        private void Peixes_Activated(object sender, EventArgs e)
+        {
+            AtualizarTabela();
         }
     }
 }
