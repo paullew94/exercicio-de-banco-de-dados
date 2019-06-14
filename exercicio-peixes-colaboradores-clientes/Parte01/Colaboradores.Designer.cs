@@ -71,6 +71,7 @@
             this.btnSalvar.TabIndex = 23;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // mtbCpf
             // 
@@ -186,10 +187,10 @@
             this.ColumnSexo,
             this.ColumnCargo,
             this.ColumnProgramador});
-            this.dataGridView1.Location = new System.Drawing.Point(215, 116);
+            this.dataGridView1.Location = new System.Drawing.Point(149, 116);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(428, 150);
             this.dataGridView1.TabIndex = 31;
             // 
             // checkBoxProgramador

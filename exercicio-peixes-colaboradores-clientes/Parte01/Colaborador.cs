@@ -12,8 +12,8 @@ namespace Parte01
         public string Nome;
         public string Cpf;
         public decimal Salario;
-        public string sexo;
-        public string cargo;
-        public string programador;
+        public string Sexo;
+        public string Cargo;
+        public string Programador;
     }
 }
