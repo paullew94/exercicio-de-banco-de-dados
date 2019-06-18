@@ -97,7 +97,7 @@ namespace Parte01
             mtbSalario.Clear();
             cbSexo.SelectedIndex = -1;
             txtCargo.Clear();
-            checkBoxProgramador.Checked == false;
+            checkBoxProgramador.Checked = 0;
 
         }
         private void AtualizarTabela()
