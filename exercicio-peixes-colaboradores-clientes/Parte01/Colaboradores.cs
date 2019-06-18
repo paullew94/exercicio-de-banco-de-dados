@@ -20,7 +20,15 @@ namespace Parte01
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-
+            if (lblID.Text == "0")
+            {
+                Inserir();
+                AtualizarTabela();
+            }
+            else
+            {
+                Alterar();
+            }
         }
         private void Inserir()
         {
@@ -31,7 +39,7 @@ namespace Parte01
             colaborador.Salario = Convert.ToDecimal(mtbSalario.Text);
             colaborador.Sexo = cbSexo.SelectedItem.ToString();
             colaborador.Cargo = txtCargo.Text;
-            colaborador.Programador = checkBoxProgramador.Text;
+            colaborador.Programador = checkBoxProgramador.Checked=true;
 
             SqlConnection conexao = new SqlConnection();
             conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\peixes.mdf;Integrated Security=True;Connect Timeout=30";
@@ -89,8 +97,21 @@ namespace Parte01
             mtbSalario.Clear();
             cbSexo.SelectedIndex = -1;
             txtCargo.Clear();
-            checkBoxProgramador;
+            checkBoxProgramador.Checked== false;
 
+        }
+        private void AtualizarTabela()
+        {
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = @"";
+            conexao.Open();
+            SqlCommand comando = new SqlCommand();
+            comando.Connection = conexao;
+            comando.CommandText = "SELECT id,nome,raca,preco,quantidade FROM peixes";
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            dataGridView1.RowCount = 0;
         }
 
     }
