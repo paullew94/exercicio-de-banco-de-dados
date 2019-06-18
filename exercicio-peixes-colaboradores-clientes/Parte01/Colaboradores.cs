@@ -39,7 +39,7 @@ namespace Parte01
             colaborador.Salario = Convert.ToDecimal(mtbSalario.Text);
             colaborador.Sexo = cbSexo.SelectedItem.ToString();
             colaborador.Cargo = txtCargo.Text;
-            colaborador.Programador = checkBoxProgramador.Checked=true;
+            colaborador.Programador = checkBoxProgramador.Checked = true;
 
             SqlConnection conexao = new SqlConnection();
             conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\peixes.mdf;Integrated Security=True;Connect Timeout=30";
@@ -97,7 +97,7 @@ namespace Parte01
             mtbSalario.Clear();
             cbSexo.SelectedIndex = -1;
             txtCargo.Clear();
-            checkBoxProgramador.Checked== false;
+            checkBoxProgramador.Checked == false;
 
         }
         private void AtualizarTabela()
@@ -107,12 +107,90 @@ namespace Parte01
             conexao.Open();
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
-            comando.CommandText = "SELECT id,nome,raca,preco,quantidade FROM peixes";
+            comando.CommandText = "SELECT id,nome,cpf,salario,sexo,cargo,programador FROM colaboradores";
 
             DataTable tabela = new DataTable();
             tabela.Load(comando.ExecuteReader());
             dataGridView1.RowCount = 0;
+            for (int i = 0; i < tabela.Rows.Count; i++)
+            {
+                DataRow linha = tabela.Rows[i];
+                Colaborador colaborador = new Colaborador();
+                colaborador.Id = Convert.ToInt32(linha["id"]);
+                colaborador.Nome = linha["nome"].ToString();
+                colaborador.Salario = Convert.ToDecimal(linha["salario"]);
+                colaborador.Sexo = linha["sexo"].ToString();
+                colaborador.Cargo = linha["cargo"].ToString();
+                colaborador.Programador = linha["programador"].ToString();
+                dataGridView1.Rows.Add(new string[] { colaborador.Id.ToString(), colaborador.Nome, colaborador.Salario.ToString(), colaborador.Sexo, colaborador.Cargo, colaborador.Programador });
+            }
+
         }
 
-    }
-}
+        private void btnApagar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Cadastre um colaborador");
+                return;
+            }
+            DialogResult caixaDeDialogo = MessageBox.Show("Deseja realmente apagar?", "AVISO", MessageBoxButtons.YesNo);
+
+            if (caixaDeDialogo == DialogResult.Yes)
+            {
+
+                SqlConnection conexao = new SqlConnection();
+                conexao.ConnectionString = @"";
+                conexao.Open();
+
+                SqlCommand comando = new SqlCommand();
+                comando.Connection = conexao;
+                comando.CommandText = "DELETE FROM colaboradores WHERE id=@ID";
+
+                int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+                comando.Parameters.AddWithValue("@ID", id);
+                comando.ExecuteNonQuery();
+
+                conexao.Close();
+                AtualizarTabela();
+            }
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
+            SqlConnection conexao = new SqlConnection();
+            conexao.ConnectionString = @"";
+            conexao.Open();
+
+            SqlCommand comando = new SqlCommand();
+            comando.CommandText = @" SELECT id,nome,cpf,salario,sexo,cargo,programador FROM colaboradores WHERE id= @ID";
+            comando.Parameters.AddWithValue("@ID", id);
+            comando.Connection = conexao;
+
+            DataTable tabela = new DataTable();
+            tabela.Load(comando.ExecuteReader());
+            DataRow linha = tabela.Rows[0];
+            Colaborador colaborador = new Colaborador();
+            colaborador.Id = Convert.ToInt32(linha["id"]);
+            colaborador.Nome = linha["nome"].ToString();
+            colaborador.Salario = Convert.ToDecimal(linha["salario"]);
+            colaborador.Sexo = linha["sexo"].ToString();
+            colaborador.Cargo = linha["cargo"].ToString();
+            colaborador.Programador = linha["programador"].ToString();
+
+            lblID.Text = colaborador.Id.ToString();
+            txtNome.Text = colaborador.Nome;
+            mtbSalario.Text = colaborador.Salario.ToString();
+            cbSexo.SelectedItem = colaborador.Sexo;
+            txtCargo.Text = colaborador.Cargo;
+            checkBoxProgramador.Text = colaborador.Programador;
+
+            conexao.Close();
+        }
+
+        private void Colaboradores_Activated(object sender, EventArgs e)
+        {
+            AtualizarTabela();
+        }
+}   }

@@ -43,7 +43,6 @@
             this.cbSexo = new System.Windows.Forms.ComboBox();
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.checkBoxProgramador = new System.Windows.Forms.CheckBox();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +50,7 @@
             this.ColumnSexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnProgramador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.checkBoxProgramador = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -62,6 +62,7 @@
             this.btnApagar.TabIndex = 24;
             this.btnApagar.Text = "Apagar";
             this.btnApagar.UseVisualStyleBackColor = true;
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
             // 
             // btnSalvar
             // 
@@ -192,16 +193,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(428, 150);
             this.dataGridView1.TabIndex = 31;
-            // 
-            // checkBoxProgramador
-            // 
-            this.checkBoxProgramador.AutoSize = true;
-            this.checkBoxProgramador.Location = new System.Drawing.Point(15, 263);
-            this.checkBoxProgramador.Name = "checkBoxProgramador";
-            this.checkBoxProgramador.Size = new System.Drawing.Size(86, 17);
-            this.checkBoxProgramador.TabIndex = 32;
-            this.checkBoxProgramador.Text = "Programador";
-            this.checkBoxProgramador.UseVisualStyleBackColor = true;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // ColumnId
             // 
@@ -245,6 +237,16 @@
             this.ColumnProgramador.Name = "ColumnProgramador";
             this.ColumnProgramador.ReadOnly = true;
             // 
+            // checkBoxProgramador
+            // 
+            this.checkBoxProgramador.AutoSize = true;
+            this.checkBoxProgramador.Location = new System.Drawing.Point(15, 263);
+            this.checkBoxProgramador.Name = "checkBoxProgramador";
+            this.checkBoxProgramador.Size = new System.Drawing.Size(86, 17);
+            this.checkBoxProgramador.TabIndex = 32;
+            this.checkBoxProgramador.Text = "Programador";
+            this.checkBoxProgramador.UseVisualStyleBackColor = true;
+            // 
             // Colaboradores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,6 +270,7 @@
             this.Controls.Add(this.lblNome);
             this.Name = "Colaboradores";
             this.Text = "Colaboradores";
+            this.Activated += new System.EventHandler(this.Colaboradores_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
