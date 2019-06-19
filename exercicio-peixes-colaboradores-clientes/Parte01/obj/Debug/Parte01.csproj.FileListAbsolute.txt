@@ -31,3 +31,16 @@ C:\Users\Usuario\Documents\GitHub\exercicio-de-banco-de-dados\exercicio-peixes-c
 C:\Users\Usuario\Documents\GitHub\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.csproj.CoreCompileInputs.cache
 C:\Users\Usuario\Documents\GitHub\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.exe
 C:\Users\Usuario\Documents\GitHub\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.pdb
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.csprojAssemblyReference.cache
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.Clientes.resources
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.Colaboradores.resources
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.Form1.resources
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.Peixes.resources
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.Properties.Resources.resources
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.csproj.GenerateResource.cache
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.csproj.CoreCompileInputs.cache
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.exe
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\obj\Debug\Parte01.pdb
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.exe.config
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.exe
+X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.pdb

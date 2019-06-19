@@ -64,6 +64,13 @@
             this.ColumnTelefone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnBairro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCep = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnLogradouro = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNomeSujo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnAltura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -321,8 +328,15 @@
             this.ColumnSaldo,
             this.ColumnTelefone,
             this.ColumnEstado,
-            this.ColumnCidade});
-            this.dataGridView1.Location = new System.Drawing.Point(302, 242);
+            this.ColumnCidade,
+            this.ColumnBairro,
+            this.ColumnCep,
+            this.ColumnLogradouro,
+            this.ColumnNumero,
+            this.ColumnComplemento,
+            this.ColumnNomeSujo,
+            this.ColumnAltura});
+            this.dataGridView1.Location = new System.Drawing.Point(227, 233);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(471, 150);
@@ -363,6 +377,48 @@
             this.ColumnCidade.HeaderText = "Cidade";
             this.ColumnCidade.Name = "ColumnCidade";
             this.ColumnCidade.ReadOnly = true;
+            // 
+            // ColumnBairro
+            // 
+            this.ColumnBairro.HeaderText = "Bairro";
+            this.ColumnBairro.Name = "ColumnBairro";
+            this.ColumnBairro.ReadOnly = true;
+            // 
+            // ColumnCep
+            // 
+            this.ColumnCep.HeaderText = "CEp";
+            this.ColumnCep.Name = "ColumnCep";
+            this.ColumnCep.ReadOnly = true;
+            // 
+            // ColumnLogradouro
+            // 
+            this.ColumnLogradouro.HeaderText = "Lougradouro";
+            this.ColumnLogradouro.Name = "ColumnLogradouro";
+            this.ColumnLogradouro.ReadOnly = true;
+            // 
+            // ColumnNumero
+            // 
+            this.ColumnNumero.HeaderText = "Numero";
+            this.ColumnNumero.Name = "ColumnNumero";
+            this.ColumnNumero.ReadOnly = true;
+            // 
+            // ColumnComplemento
+            // 
+            this.ColumnComplemento.HeaderText = "Complemento";
+            this.ColumnComplemento.Name = "ColumnComplemento";
+            this.ColumnComplemento.ReadOnly = true;
+            // 
+            // ColumnNomeSujo
+            // 
+            this.ColumnNomeSujo.HeaderText = "Nome Sujo";
+            this.ColumnNomeSujo.Name = "ColumnNomeSujo";
+            this.ColumnNomeSujo.ReadOnly = true;
+            // 
+            // ColumnAltura
+            // 
+            this.ColumnAltura.HeaderText = "Altura";
+            this.ColumnAltura.Name = "ColumnAltura";
+            this.ColumnAltura.ReadOnly = true;
             // 
             // Clientes
             // 
@@ -446,5 +502,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTelefone;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCidade;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnBairro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCep;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnLogradouro;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNumero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnComplemento;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNomeSujo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAltura;
     }
 }

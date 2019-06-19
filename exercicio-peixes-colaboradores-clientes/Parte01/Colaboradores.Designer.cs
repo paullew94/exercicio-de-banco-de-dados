@@ -77,7 +77,7 @@
             // mtbCpf
             // 
             this.mtbCpf.Location = new System.Drawing.Point(11, 93);
-            this.mtbCpf.Mask = "999.999.-99";
+            this.mtbCpf.Mask = "999.999.999-99";
             this.mtbCpf.Name = "mtbCpf";
             this.mtbCpf.Size = new System.Drawing.Size(100, 20);
             this.mtbCpf.TabIndex = 21;
@@ -155,7 +155,7 @@
             // mtbSalario
             // 
             this.mtbSalario.Location = new System.Drawing.Point(13, 138);
-            this.mtbSalario.Mask = "9999,99";
+            this.mtbSalario.Mask = "9999.99";
             this.mtbSalario.Name = "mtbSalario";
             this.mtbSalario.Size = new System.Drawing.Size(100, 20);
             this.mtbSalario.TabIndex = 28;
@@ -163,6 +163,9 @@
             // cbSexo
             // 
             this.cbSexo.FormattingEnabled = true;
+            this.cbSexo.Items.AddRange(new object[] {
+            "Masculino",
+            "Feminino"});
             this.cbSexo.Location = new System.Drawing.Point(11, 177);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(121, 21);
@@ -188,7 +191,7 @@
             this.ColumnSexo,
             this.ColumnCargo,
             this.ColumnProgramador});
-            this.dataGridView1.Location = new System.Drawing.Point(149, 116);
+            this.dataGridView1.Location = new System.Drawing.Point(138, 116);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(428, 150);

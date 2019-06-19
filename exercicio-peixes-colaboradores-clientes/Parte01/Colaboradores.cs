@@ -34,16 +34,34 @@ namespace Parte01
         {
 
             Colaborador colaborador = new Colaborador();
+            colaborador.Id = Convert.ToInt32(lblID.Text);
             colaborador.Nome = txtNome.Text;
             colaborador.Cpf = mtbCpf.Text;
             colaborador.Salario = Convert.ToDecimal(mtbSalario.Text);
             colaborador.Sexo = cbSexo.SelectedItem.ToString();
             colaborador.Cargo = txtCargo.Text;
-            colaborador.Programador = checkBoxProgramador.Checked = true;
+            if (checkBoxProgramador.Checked == true)
+            {
+                colaborador.Programador = "Sim";
+            }
+            else
+            {
+                colaborador.Programador = "Não";
+            }
+
+
 
             SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\peixes.mdf;Integrated Security=True;Connect Timeout=30";
-            conexao.Open();
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\exercicio.mdf;Integrated Security=True;Connect Timeout=30";
+            try
+            {
+                conexao.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
             comando.CommandText = @"INSERT INTO colaboradores (nome,cpf,salario,sexo,cargo,programador) VALUES (@NOME,@CPF,@SALARIO,@SEXO,@CARGO,@PROGRAMADOR)";
@@ -54,10 +72,12 @@ namespace Parte01
             comando.Parameters.AddWithValue("@SEXO", colaborador.Sexo);
             comando.Parameters.AddWithValue("@CARGO", colaborador.Cargo);
             comando.Parameters.AddWithValue("PROGRAMADOR", colaborador.Programador);
+            comando.ExecuteNonQuery();
             MessageBox.Show("Registro criado com sucesso");
-            LimparCampos();
+          
             conexao.Close();
             AtualizarTabela();
+            LimparCampos();
 
 
         }
@@ -70,9 +90,17 @@ namespace Parte01
             colaborador.Salario = Convert.ToDecimal(mtbSalario.Text);
             colaborador.Sexo = cbSexo.SelectedItem.ToString();
             colaborador.Cargo = txtCargo.Text;
-            colaborador.Programador = checkBoxProgramador.Text;
+            if (checkBoxProgramador.Checked == true)
+            {
+                colaborador.Programador = "Sim";
+            }
+            else
+            {
+                colaborador.Programador = "Não";
+            }
+
             SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\peixes.mdf;Integrated Security=True;Connect Timeout=30";
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\exercicio.mdf;Integrated Security=True;Connect Timeout=30";
             conexao.Open();
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
@@ -84,8 +112,8 @@ namespace Parte01
             comando.Parameters.AddWithValue("@CARGO", colaborador.Cargo);
             comando.Parameters.AddWithValue("PROGRAMADOR", colaborador.Programador);
             comando.ExecuteNonQuery();
-            conexao.Close();
             AtualizarTabela();
+            conexao.Close();
             LimparCampos();
 
         }
@@ -97,13 +125,13 @@ namespace Parte01
             mtbSalario.Clear();
             cbSexo.SelectedIndex = -1;
             txtCargo.Clear();
-            checkBoxProgramador.Checked = 0;
+
 
         }
         private void AtualizarTabela()
         {
             SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"";
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\exercicio.mdf;Integrated Security=True;Connect Timeout=30";
             conexao.Open();
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
@@ -118,11 +146,12 @@ namespace Parte01
                 Colaborador colaborador = new Colaborador();
                 colaborador.Id = Convert.ToInt32(linha["id"]);
                 colaborador.Nome = linha["nome"].ToString();
+                colaborador.Cpf = linha["cpf"].ToString();
                 colaborador.Salario = Convert.ToDecimal(linha["salario"]);
                 colaborador.Sexo = linha["sexo"].ToString();
                 colaborador.Cargo = linha["cargo"].ToString();
                 colaborador.Programador = linha["programador"].ToString();
-                dataGridView1.Rows.Add(new string[] { colaborador.Id.ToString(), colaborador.Nome, colaborador.Salario.ToString(), colaborador.Sexo, colaborador.Cargo, colaborador.Programador });
+                dataGridView1.Rows.Add(new string[] { colaborador.Id.ToString(), colaborador.Nome, colaborador.Cpf, colaborador.Salario.ToString(), colaborador.Sexo, colaborador.Cargo, colaborador.Programador}); 
             }
 
         }
@@ -140,7 +169,7 @@ namespace Parte01
             {
 
                 SqlConnection conexao = new SqlConnection();
-                conexao.ConnectionString = @"";
+                conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\exercicio.mdf;Integrated Security=True;Connect Timeout=30";
                 conexao.Open();
 
                 SqlCommand comando = new SqlCommand();
@@ -160,7 +189,7 @@ namespace Parte01
         {
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
             SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"";
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\exercicio.mdf;Integrated Security=True;Connect Timeout=30";
             conexao.Open();
 
             SqlCommand comando = new SqlCommand();
@@ -174,6 +203,7 @@ namespace Parte01
             Colaborador colaborador = new Colaborador();
             colaborador.Id = Convert.ToInt32(linha["id"]);
             colaborador.Nome = linha["nome"].ToString();
+            colaborador.Cpf = linha["cpf"].ToString();
             colaborador.Salario = Convert.ToDecimal(linha["salario"]);
             colaborador.Sexo = linha["sexo"].ToString();
             colaborador.Cargo = linha["cargo"].ToString();
@@ -181,10 +211,19 @@ namespace Parte01
 
             lblID.Text = colaborador.Id.ToString();
             txtNome.Text = colaborador.Nome;
+            mtbCpf.Text = colaborador.Cpf;
             mtbSalario.Text = colaborador.Salario.ToString();
             cbSexo.SelectedItem = colaborador.Sexo;
             txtCargo.Text = colaborador.Cargo;
-            checkBoxProgramador.Text = colaborador.Programador;
+            if(colaborador.Programador.ToLower() == "sim")
+            {
+            checkBoxProgramador.Checked = true ;
+
+            }
+            else
+            {
+                checkBoxProgramador.Checked = false;
+            }
 
             conexao.Close();
         }
@@ -193,4 +232,5 @@ namespace Parte01
         {
             AtualizarTabela();
         }
-}   }
+    }
+}
