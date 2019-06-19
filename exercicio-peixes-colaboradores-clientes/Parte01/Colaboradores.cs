@@ -37,7 +37,7 @@ namespace Parte01
             colaborador.Id = Convert.ToInt32(lblID.Text);
             colaborador.Nome = txtNome.Text;
             colaborador.Cpf = mtbCpf.Text;
-            colaborador.Salario = Convert.ToDecimal(mtbSalario.Text);
+            colaborador.Salario = Convert.ToDecimal(mtbSaldo.Text);
             colaborador.Sexo = cbSexo.SelectedItem.ToString();
             colaborador.Cargo = txtCargo.Text;
             if (checkBoxProgramador.Checked == true)
@@ -87,7 +87,7 @@ namespace Parte01
             colaborador.Id = Convert.ToInt32(lblID.Text);
             colaborador.Nome = txtNome.Text;
             colaborador.Cpf = mtbCpf.Text;
-            colaborador.Salario = Convert.ToDecimal(mtbSalario.Text);
+            colaborador.Salario = Convert.ToDecimal(mtbSaldo.Text);
             colaborador.Sexo = cbSexo.SelectedItem.ToString();
             colaborador.Cargo = txtCargo.Text;
             if (checkBoxProgramador.Checked == true)
@@ -122,7 +122,7 @@ namespace Parte01
             lblID.Text = "0";
             txtNome.Clear();
             mtbCpf.Clear();
-            mtbSalario.Clear();
+            mtbSaldo.Clear();
             cbSexo.SelectedIndex = -1;
             txtCargo.Clear();
 
@@ -212,7 +212,7 @@ namespace Parte01
             lblID.Text = colaborador.Id.ToString();
             txtNome.Text = colaborador.Nome;
             mtbCpf.Text = colaborador.Cpf;
-            mtbSalario.Text = colaborador.Salario.ToString();
+            mtbSaldo.Text = colaborador.Salario.ToString();
             cbSexo.SelectedItem = colaborador.Sexo;
             txtCargo.Text = colaborador.Cargo;
             if(colaborador.Programador.ToLower() == "sim")

@@ -95,6 +95,34 @@
             // cbEstado
             // 
             this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Items.AddRange(new object[] {
+            "AC",
+            "AL",
+            "AP",
+            "AM",
+            "BA",
+            "CE",
+            "DF",
+            "ES",
+            "GO",
+            "MA",
+            "MT",
+            "MS",
+            "MG",
+            "PA",
+            "PB",
+            "PE",
+            "PI",
+            "PR",
+            "RJ",
+            "RN",
+            "RS",
+            "RO",
+            "RR",
+            "SC",
+            "SP",
+            "SE",
+            "TO"});
             this.cbEstado.Location = new System.Drawing.Point(12, 184);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(121, 21);
@@ -103,7 +131,7 @@
             // mtbSalario
             // 
             this.mtbSalario.Location = new System.Drawing.Point(14, 145);
-            this.mtbSalario.Mask = "9999,99";
+            this.mtbSalario.Mask = "9999.99";
             this.mtbSalario.Name = "mtbSalario";
             this.mtbSalario.Size = new System.Drawing.Size(100, 20);
             this.mtbSalario.TabIndex = 44;
@@ -134,6 +162,7 @@
             this.btnSalvar.TabIndex = 41;
             this.btnSalvar.Text = "Salvar";
             this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click);
             // 
             // mtbTelefone
             // 
@@ -207,7 +236,7 @@
             // mtbCep
             // 
             this.mtbCep.Location = new System.Drawing.Point(319, 88);
-            this.mtbCep.Mask = "9999,99";
+            this.mtbCep.Mask = "99999-999";
             this.mtbCep.Name = "mtbCep";
             this.mtbCep.Size = new System.Drawing.Size(100, 20);
             this.mtbCep.TabIndex = 50;
@@ -339,7 +368,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(227, 233);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(471, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(649, 150);
             this.dataGridView1.TabIndex = 63;
             // 
             // ColumnId
@@ -424,7 +453,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(912, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtAltura);
             this.Controls.Add(this.lblAltura);

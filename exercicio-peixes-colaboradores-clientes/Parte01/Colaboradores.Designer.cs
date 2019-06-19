@@ -39,7 +39,7 @@
             this.lblCPF = new System.Windows.Forms.Label();
             this.lblNome = new System.Windows.Forms.Label();
             this.lblCargo = new System.Windows.Forms.Label();
-            this.mtbSalario = new System.Windows.Forms.MaskedTextBox();
+            this.mtbSaldo = new System.Windows.Forms.MaskedTextBox();
             this.cbSexo = new System.Windows.Forms.ComboBox();
             this.txtCargo = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -152,13 +152,13 @@
             this.lblCargo.TabIndex = 26;
             this.lblCargo.Text = "Cargo";
             // 
-            // mtbSalario
+            // mtbSaldo
             // 
-            this.mtbSalario.Location = new System.Drawing.Point(13, 138);
-            this.mtbSalario.Mask = "9999.99";
-            this.mtbSalario.Name = "mtbSalario";
-            this.mtbSalario.Size = new System.Drawing.Size(100, 20);
-            this.mtbSalario.TabIndex = 28;
+            this.mtbSaldo.Location = new System.Drawing.Point(13, 138);
+            this.mtbSaldo.Mask = "9999.99";
+            this.mtbSaldo.Name = "mtbSaldo";
+            this.mtbSaldo.Size = new System.Drawing.Size(100, 20);
+            this.mtbSaldo.TabIndex = 28;
             // 
             // cbSexo
             // 
@@ -259,7 +259,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtCargo);
             this.Controls.Add(this.cbSexo);
-            this.Controls.Add(this.mtbSalario);
+            this.Controls.Add(this.mtbSaldo);
             this.Controls.Add(this.lblCargo);
             this.Controls.Add(this.btnApagar);
             this.Controls.Add(this.btnSalvar);
@@ -292,7 +292,7 @@
         private System.Windows.Forms.Label lblCPF;
         private System.Windows.Forms.Label lblNome;
         private System.Windows.Forms.Label lblCargo;
-        private System.Windows.Forms.MaskedTextBox mtbSalario;
+        private System.Windows.Forms.MaskedTextBox mtbSaldo;
         private System.Windows.Forms.ComboBox cbSexo;
         private System.Windows.Forms.TextBox txtCargo;
         private System.Windows.Forms.DataGridView dataGridView1;

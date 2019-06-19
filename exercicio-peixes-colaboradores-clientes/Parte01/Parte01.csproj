@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cliente.cs" />
     <Compile Include="Clientes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +111,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Estrutura.sql" />
+    <Content Include="Estruturacliente.sql" />
     <Content Include="Estruturacola.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
