@@ -20,7 +20,15 @@ namespace Parte01
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-
+            if (lblID.Text == "0")
+            {
+                Inserir();
+                AtualizarTabela();
+            }
+            else
+            {
+                Alterar();
+            }
         }
 
         private void Inserir()
@@ -44,24 +52,25 @@ namespace Parte01
             {
                 cliente.NomeSujo = "Não";
             }
-            cliente.Altura = Convert.ToDecimal(txtAltura.Text);
-            cliente.Peso = Convert.ToDecimal(txtPeso.Text);
+            cliente.Altura = Convert.ToDecimal(mtbAltura.Text);
+            cliente.Peso = Convert.ToDecimal(mtbPeso.Text);
 
             SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\exercicio.mdf;Integrated Security=True;Connect Timeout=30";
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Usuario\Documents\teste.mdf;Integrated Security=True;Connect Timeout=30";
 
             conexao.Open();
 
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
-            comando.CommandText = @"INSERT INTO clientes (nome,saldo,telefone,estado,cidade,bairro,cep,logradouro,numero,complemento,nome_sujo,altura,peso) VALUES (@NOME,@SALDO,@TELEFONE,@ESTADO,@BAIRRO,@CEP,@LOGRADOURO,@NUMERO,@COMPLEMENTO,@NOME_SUJO,@ALTURA,@PESO)";
+            comando.CommandText = @"INSERT INTO clientes (nome,saldo,telefone,estado,cidade,bairro,cep,logradouro,numero,complemento,nome_sujo,altura,peso) VALUES (@NOME,@SALDO,@TELEFONE,@ESTADO,@CIDADE,@BAIRRO,@CEP,@LOGRADOURO,@NUMERO,@COMPLEMENTO,@NOME_SUJO,@ALTURA,@PESO)";
             comando.Parameters.AddWithValue("@NOME", cliente.Nome);
             comando.Parameters.AddWithValue("@SALDO", cliente.Saldo);
             comando.Parameters.AddWithValue("@TELEFONE", cliente.Telefone);
             comando.Parameters.AddWithValue("@ESTADO", cliente.Estado);
+            comando.Parameters.AddWithValue("@CIDADE", cliente.Cidade);
             comando.Parameters.AddWithValue("@BAIRRO", cliente.Bairro);
             comando.Parameters.AddWithValue("@CEP", cliente.Cep);
-            comando.Parameters.AddWithValue("@LOGRADURO", cliente.Logradouro);
+            comando.Parameters.AddWithValue("@LOGRADOURO", cliente.Logradouro);
             comando.Parameters.AddWithValue("@NUMERO", cliente.Numero);
             comando.Parameters.AddWithValue("@COMPLEMENTO", cliente.Complemento);
             comando.Parameters.AddWithValue("@NOME_SUJO", cliente.NomeSujo);
@@ -100,10 +109,10 @@ namespace Parte01
                 cliente.NomeSujo = "Não";
 
             }
-            cliente.Altura = Convert.ToDecimal(txtAltura.Text);
-            cliente.Peso = Convert.ToDecimal(txtPeso.Text);
+            cliente.Altura = Convert.ToDecimal(mtbAltura.Text);
+            cliente.Peso = Convert.ToDecimal(mtbPeso.Text);
             SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=T:\Documentos\exercicio.mdf;Integrated Security=True;Connect Timeout=30";
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Usuario\Documents\teste.mdf;Integrated Security=True;Connect Timeout=30";
             conexao.Open();
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
@@ -141,13 +150,13 @@ namespace Parte01
             nudNumero.Value = 0;
             txtComplemento.Clear();
             ckbNomeSujo.Checked = false;
-            txtAltura.Clear();
-            txtPeso.Clear();
+            mtbAltura.Clear();
+            mtbPeso.Clear();
         }
         private void AtualizarTabela()
         {
             SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"";
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Usuario\Documents\teste.mdf;Integrated Security=True;Connect Timeout=30";
             conexao.Open();
             SqlCommand comando = new SqlCommand();
             comando.Connection = conexao;
@@ -191,7 +200,7 @@ namespace Parte01
             {
 
                 SqlConnection conexao = new SqlConnection();
-                conexao.ConnectionString = @"";
+                conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Usuario\Documents\teste.mdf;Integrated Security=True;Connect Timeout=30";
                 conexao.Open();
 
                 SqlCommand comando = new SqlCommand();
@@ -211,7 +220,7 @@ namespace Parte01
         {
             int id = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value);
             SqlConnection conexao = new SqlConnection();
-            conexao.ConnectionString = @"";
+            conexao.ConnectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Usuario\Documents\teste.mdf;Integrated Security=True;Connect Timeout=30";
             conexao.Open();
 
             SqlCommand comando = new SqlCommand();
@@ -257,8 +266,8 @@ namespace Parte01
             {
                 ckbNomeSujo.Checked = false;
             }
-            txtAltura.Text = cliente.Altura.ToString();
-            txtPeso.Text = cliente.Peso.ToString();
+            mtbAltura.Text = cliente.Altura.ToString();
+            mtbPeso.Text = cliente.Peso.ToString();
             conexao.Close();
         }
 

@@ -44,3 +44,6 @@ X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\o
 X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.exe.config
 X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.exe
 X:\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.pdb
+C:\Users\Usuario\Documents\GitHub\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.exe.config
+C:\Users\Usuario\Documents\GitHub\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.exe
+C:\Users\Usuario\Documents\GitHub\exercicio-de-banco-de-dados\exercicio-peixes-colaboradores-clientes\Parte01\bin\Debug\Parte01.pdb

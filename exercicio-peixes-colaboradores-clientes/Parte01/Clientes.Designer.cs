@@ -53,9 +53,7 @@
             this.lblLogradouro = new System.Windows.Forms.Label();
             this.nudNumero = new System.Windows.Forms.NumericUpDown();
             this.lblNumero = new System.Windows.Forms.Label();
-            this.txtPeso = new System.Windows.Forms.TextBox();
             this.lblPeso = new System.Windows.Forms.Label();
-            this.txtAltura = new System.Windows.Forms.TextBox();
             this.lblAltura = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,6 +69,8 @@
             this.ColumnComplemento = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNomeSujo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnAltura = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.mtbAltura = new System.Windows.Forms.MaskedTextBox();
+            this.mtbPeso = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.nudNumero)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -315,13 +315,6 @@
             this.lblNumero.TabIndex = 57;
             this.lblNumero.Text = "Numero";
             // 
-            // txtPeso
-            // 
-            this.txtPeso.Location = new System.Drawing.Point(180, 184);
-            this.txtPeso.Name = "txtPeso";
-            this.txtPeso.Size = new System.Drawing.Size(100, 20);
-            this.txtPeso.TabIndex = 60;
-            // 
             // lblPeso
             // 
             this.lblPeso.AutoSize = true;
@@ -330,13 +323,6 @@
             this.lblPeso.Size = new System.Drawing.Size(31, 13);
             this.lblPeso.TabIndex = 59;
             this.lblPeso.Text = "Peso";
-            // 
-            // txtAltura
-            // 
-            this.txtAltura.Location = new System.Drawing.Point(160, 132);
-            this.txtAltura.Name = "txtAltura";
-            this.txtAltura.Size = new System.Drawing.Size(100, 20);
-            this.txtAltura.TabIndex = 62;
             // 
             // lblAltura
             // 
@@ -451,15 +437,31 @@
             this.ColumnAltura.Name = "ColumnAltura";
             this.ColumnAltura.ReadOnly = true;
             // 
+            // mtbAltura
+            // 
+            this.mtbAltura.Location = new System.Drawing.Point(160, 140);
+            this.mtbAltura.Mask = "9.99";
+            this.mtbAltura.Name = "mtbAltura";
+            this.mtbAltura.Size = new System.Drawing.Size(100, 20);
+            this.mtbAltura.TabIndex = 64;
+            // 
+            // mtbPeso
+            // 
+            this.mtbPeso.Location = new System.Drawing.Point(158, 179);
+            this.mtbPeso.Mask = "999.99";
+            this.mtbPeso.Name = "mtbPeso";
+            this.mtbPeso.Size = new System.Drawing.Size(100, 20);
+            this.mtbPeso.TabIndex = 65;
+            // 
             // Clientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 450);
+            this.Controls.Add(this.mtbPeso);
+            this.Controls.Add(this.mtbAltura);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.txtAltura);
             this.Controls.Add(this.lblAltura);
-            this.Controls.Add(this.txtPeso);
             this.Controls.Add(this.lblPeso);
             this.Controls.Add(this.nudNumero);
             this.Controls.Add(this.lblNumero);
@@ -523,9 +525,7 @@
         private System.Windows.Forms.Label lblLogradouro;
         private System.Windows.Forms.NumericUpDown nudNumero;
         private System.Windows.Forms.Label lblNumero;
-        private System.Windows.Forms.TextBox txtPeso;
         private System.Windows.Forms.Label lblPeso;
-        private System.Windows.Forms.TextBox txtAltura;
         private System.Windows.Forms.Label lblAltura;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
@@ -541,5 +541,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnComplemento;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNomeSujo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnAltura;
+        private System.Windows.Forms.MaskedTextBox mtbAltura;
+        private System.Windows.Forms.MaskedTextBox mtbPeso;
     }
 }
