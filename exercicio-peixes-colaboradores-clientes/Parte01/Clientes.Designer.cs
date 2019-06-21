@@ -153,6 +153,7 @@
             this.btnApagar.TabIndex = 42;
             this.btnApagar.Text = "Apagar";
             this.btnApagar.UseVisualStyleBackColor = true;
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
             // 
             // btnSalvar
             // 
@@ -370,6 +371,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(649, 150);
             this.dataGridView1.TabIndex = 63;
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // ColumnId
             // 
@@ -486,6 +488,7 @@
             this.Controls.Add(this.lblNome);
             this.Name = "Clientes";
             this.Text = "Clientes";
+            this.Activated += new System.EventHandler(this.Clientes_Activated);
             ((System.ComponentModel.ISupportInitialize)(this.nudNumero)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
